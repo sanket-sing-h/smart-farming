@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Land Preparation</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f5dc;
+text-align:center;
+}
+
+/* TITLE */
+h2{
+margin-top:20px;
+}
+
+/* STEP CARD */
+.step{
+background:white;
+margin:15px auto;
+padding:15px;
+width:300px;
+
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+cursor:pointer;
+transition:0.3s;
+}
+
+/* HOVER */
+.step:hover{
+transform:scale(1.05);
+}
+
+/* DONE STATE */
+.done{
+background:#c8e6c9;
+text-decoration:line-through;
+}
+
+/* PROGRESS BAR */
+.progress-box{
+width:300px;
+margin:20px auto;
+background:#ddd;
+border-radius:10px;
+overflow:hidden;
+}
+
+.progress{
+height:20px;
+width:0%;
+background:#4caf50;
+transition:0.3s;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>🚜 Land Preparation</h2>
+
+<!-- STEPS -->
+<div class="step" onclick="toggle(this)">Plough the field</div>
+<div class="step" onclick="toggle(this)">Add compost</div>
+<div class="step" onclick="toggle(this)">Level soil</div>
+
+<!-- PROGRESS -->
+<div class="progress-box">
+<div class="progress" id="progress"></div>
+</div>
+
+<p id="status">Progress: 0%</p>
+
+<br>
+<a href="home.html">⬅ Back</a>
+
+<script>
+
+let completed = 0;
+
+function toggle(el){
+
+if(!el.classList.contains("done")){
+el.classList.add("done");
+completed++;
+}else{
+el.classList.remove("done");
+completed--;
+}
+
+updateProgress();
+}
+
+function updateProgress(){
+
+let percent = (completed/3)*100;
+
+document.getElementById("progress").style.width = percent + "%";
+document.getElementById("status").innerText = "Progress: " + percent + "%";
+
+}
+
+</script>
+
+</body>
+</html>

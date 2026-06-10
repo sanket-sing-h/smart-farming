@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Farming AI Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+margin:0;
+font-family:'Segoe UI';
+background: url("image/farm.jpg") no-repeat center center/cover;
+color:white;
+text-align:center;
+}
+
+/* DARK OVERLAY */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background: rgba(0,0,0,0.6);
+z-index:-1;
+}
+
+h1{
+margin:10px;
+font-size:22px;
+}
+
+/* COMPACT GRID */
+.dashboard{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+padding:10px;
+height:90vh;
+}
+
+/* SMALL CARDS */
+.card{
+background: rgba(255,255,255,0.1);
+backdrop-filter: blur(10px);
+padding:12px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+font-size:14px;
+}
+
+.card h3{
+font-size:16px;
+margin:5px;
+}
+
+.value{
+font-size:20px;
+color:#00ffcc;
+}
+
+/* SMALL INPUTS */
+input{
+padding:6px;
+margin:3px;
+font-size:12px;
+border-radius:6px;
+border:none;
+}
+
+/* SMALL BUTTON */
+button{
+padding:6px 10px;
+font-size:12px;
+border:none;
+background:#00c853;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* IMAGE SMALL */
+img{
+width:100px;
+}
+
+/* MAP SMALL */
+iframe{
+height:120px;
+}
+
+/* GRAPH SMALL */
+canvas{
+height:120px !important;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body onload="init()">
+
+<h1>🌾 Smart Farming AI Dashboard</h1>
+
+<div class="dashboard">
+
+<div class="card">
+<h3>⏰ India Time</h3>
+<div id="clock" class="value"></div>
+</div>
+
+<div class="card">
+<h3>🌱 Moisture</h3>
+<div id="moisture" class="value">--</div>
+</div>
+
+<div class="card">
+<h3>🌡 Temperature</h3>
+<div id="temperature" class="value">--</div>
+</div>
+
+<div class="card">
+<h3>💧 Humidity</h3>
+<div id="humidity" class="value">--</div>
+</div>
+
+<div class="card">
+<h3>📊 Sensor Graph</h3>
+<canvas id="chart"></canvas>
+</div>
+
+<div class="card">
+<h3>⚠ Alerts</h3>
+<p id="alertBox">All conditions normal ✅</p>
+</div>
+
+<!-- AI -->
+<div class="card">
+<h3>🤖 AI Crop Prediction</h3>
+
+<input id="n" placeholder="Nitrogen"><br>
+<input id="p" placeholder="Phosphorus"><br>
+<input id="k" placeholder="Potassium"><br>
+<input id="tempInput" placeholder="Temperature"><br>
+<input id="humInput" placeholder="Humidity"><br>
+<input id="ph" placeholder="pH"><br>
+<input id="rain" placeholder="Rainfall"><br><br>
+
+<button onclick="predictCrop()">Predict Crop</button>
+
+<p id="aiCrop"></p>
+</div>
+
+<!-- IMAGE -->
+<div class="card">
+<h3>📸 Crop Image Prediction</h3>
+
+<input type="file" id="imageInput" accept="image/*"><br><br>
+
+<img id="preview" width="150"><br><br>
+
+<button onclick="predictImage()">Analyze Image</button>
+
+<p id="imageResult"></p>
+</div>
+
+<!-- WEATHER -->
+<div class="card">
+<h3>🌦 Weather</h3>
+
+<input id="city" placeholder="Enter city (e.g. Delhi)"><br><br>
+<button onclick="loadWeather()">Check Weather</button>
+
+<p>Temp: <span id="weatherTemp">Loading...</span></p>
+<p>Humidity: <span id="weatherHum">Loading...</span></p>
+<p>Wind: <span id="weatherWind">Loading...</span></p>
+<p>Condition: <span id="weatherCond">Loading...</span></p>
+</div>
+
+<!-- MAP -->
+<div class="card">
+<h3>🗺 Farm Location</h3>
+
+<iframe
+id="mapFrame"
+width="100%"
+height="200"
+src="https://maps.google.com/maps?q=india&z=5&output=embed">
+</iframe>
+
+<br><br>
+
+<button onclick="setLocation()">Use My Location 📍</button>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

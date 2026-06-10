@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather</title>
+<style>
+body{font-family:Arial;text-align:center;background:#e3f2fd}
+.temp{font-size:50px;margin:20px;color:#1565c0}
+button{padding:8px 15px;border:none;background:#2196f3;color:white;border-radius:6px}
+</style>
+</head>
+<body>
+
+<h2>🌦 Weather Info</h2>
+
+<div class="temp" id="temp"></div>
+<p id="status"></p>
+
+<button onclick="loadWeather()">Refresh</button><br><br>
+
+<a href="home.html">⬅ Back</a>
+
+<script>
+function loadWeather(){
+let temp = Math.floor(Math.random()*10)+25;
+document.getElementById("temp").innerText=temp+"°C";
+document.getElementById("status").innerText =
+(temp>30)?"Hot ☀ Stay hydrated":"Normal 🌤 Good weather";
+}
+loadWeather();
+</script>
+
+</body>
+</html>

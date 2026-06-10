@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Land Info</title>
+<style>
+body{font-family:Arial;background:#e8f5e9;display:flex;justify-content:center;align-items:center;height:100vh}
+.box{background:white;padding:30px;border-radius:15px;width:320px;box-shadow:0 10px 25px rgba(0,0,0,0.2);text-align:center}
+input{width:90%;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #ccc}
+button{background:#4caf50;color:white;padding:10px 20px;border:none;border-radius:8px;cursor:pointer}
+#result{margin-top:10px;font-weight:bold}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>🌍 Land Info</h2>
+
+<input id="soil" placeholder="Soil Type (e.g. Loamy)">
+<input id="ph" placeholder="pH Value (0–14)">
+
+<button onclick="analyze()">Analyze</button>
+
+<p id="result"></p>
+
+<a href="home.html">⬅ Back</a>
+</div>
+
+<script>
+function analyze(){
+let soil=document.getElementById("soil").value;
+let ph=parseFloat(document.getElementById("ph").value);
+
+if(!soil || isNaN(ph)){
+alert("Fill all fields properly");
+return;
+}
+
+let msg = (ph<6) ? "Acidic Soil ⚠ Add Lime" :
+          (ph>7.5) ? "Alkaline Soil ⚠ Add Sulfur" :
+          "Balanced Soil ✅ Good for crops";
+
+document.getElementById("result").innerText = msg;
+}
+</script>
+
+</body>
+</html>

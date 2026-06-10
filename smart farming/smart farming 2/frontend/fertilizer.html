@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fertilizer Recommendation</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#e8f5e9;
+text-align:center;
+padding-top:40px;
+}
+
+.box{
+background:white;
+padding:30px;
+width:350px;
+margin:auto;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+select,input{
+width:90%;
+padding:10px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+padding:10px 20px;
+background:#4caf50;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+#result{
+margin-top:15px;
+font-size:18px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>🌱 Smart Fertilizer System</h2>
+
+<!-- CROP -->
+<select id="crop">
+<option value="">Select Crop</option>
+<option>Wheat</option>
+<option>Rice</option>
+<option>Maize</option>
+<option>Sugarcane</option>
+<option>Cotton</option>
+<option>Potato</option>
+<option>Tomato</option>
+<option>Onion</option>
+<option>Barley</option>
+<option>Pulses</option>
+</select>
+
+<!-- SOIL -->
+<select id="soil">
+<option value="">Soil Type</option>
+<option>Low Nutrient</option>
+<option>Medium</option>
+<option>High</option>
+</select>
+
+<!-- PH -->
+<input type="number" id="ph" placeholder="Enter pH value (0–14)">
+
+<button onclick="recommend()">Get Recommendation</button>
+
+<p id="result"></p>
+
+<br>
+<a href="home.html">⬅ Back</a>
+
+</div>
+
+<script>
+
+// DATA-BASED SYSTEM
+const cropData = {
+
+"Wheat": "NPK (20-20-0) + Nitrogen",
+"Rice": "Urea + Potassium",
+"Maize": "Nitrogen-rich fertilizer",
+"Sugarcane": "NPK (10-26-26)",
+"Cotton": "Potassium + Phosphorus",
+"Potato": "High Potassium fertilizer",
+"Tomato": "Organic compost + NPK",
+"Onion": "Nitrogen + Sulfur",
+"Barley": "Nitrogen fertilizer",
+"Pulses": "Low Nitrogen, more Phosphorus"
+
+};
+
+function recommend(){
+
+let crop = document.getElementById("crop").value;
+let soil = document.getElementById("soil").value;
+let ph = parseFloat(document.getElementById("ph").value);
+
+if(!crop || !soil || isNaN(ph)){
+alert("Please fill all fields!");
+return;
+}
+
+let result = "";
+
+// PH BASED
+if(ph < 6){
+result = "⚠ Acidic Soil → Add Lime + Organic compost\n";
+}
+else if(ph > 7.5){
+result = "⚠ Alkaline Soil → Add Sulfur-based fertilizer\n";
+}
+else{
+result = "✅ Balanced Soil\n";
+}
+
+// SOIL CONDITION
+if(soil === "Low Nutrient"){
+result += "👉 Add Nitrogen & Organic fertilizers\n";
+}
+else if(soil === "High"){
+result += "👉 Avoid excess fertilizer\n";
+}
+
+// CROP SPECIFIC
+result += "🌾 For " + crop + ": " + cropData[crop];
+
+document.getElementById("result").innerText = result;
+
+}
+
+</script>
+
+</body>
+</html>

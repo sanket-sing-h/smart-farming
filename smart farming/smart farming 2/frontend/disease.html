@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Disease Detection</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background: #e8f5e9;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.container{
+    width: 400px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+h1{
+    color: #2e7d32;
+}
+
+input{
+    margin-top: 20px;
+}
+
+img{
+    width: 250px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: none;
+}
+
+button{
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover{
+    background: darkgreen;
+}
+
+#result{
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #1b5e20;
+}
+
+a{
+    text-decoration: none;
+}
+
+.back{
+    background: #1976d2;
+}
+
+.back:hover{
+    background: #0d47a1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🦠 Disease Detection</h1>
+
+    <input type="file" id="fileInput">
+
+    <br>
+
+    <img id="preview">
+
+    <br>
+
+    <button id="analyzeBtn">
+        Analyze Disease
+    </button>
+
+    <div id="result"></div>
+
+    <br>
+
+    <a href="/home.html">
+        <button class="back">
+            ⬅ Back
+        </button>
+    </a>
+
+</div>
+
+<script>
+
+const fileInput = document.getElementById("fileInput");
+
+const preview = document.getElementById("preview");
+
+const result = document.getElementById("result");
+
+const analyzeBtn = document.getElementById("analyzeBtn");
+
+
+// IMAGE PREVIEW
+fileInput.addEventListener("change", function(event){
+
+    const file = event.target.files[0];
+
+    if(file){
+
+        preview.src = URL.createObjectURL(file);
+
+        preview.style.display = "block";
+
+        result.innerHTML = "";
+    }
+
+});
+
+
+// ANALYZE BUTTON
+analyzeBtn.addEventListener("click", async function(){
+
+    const file = fileInput.files[0];
+
+    if(!file){
+
+        alert("Please upload image first!");
+
+        return;
+    }
+
+    result.innerHTML = "Analyzing... ⏳";
+
+    const formData = new FormData();
+
+    formData.append("file", file);
+
+    try{
+
+        const response = await fetch("/predict-image", {
+
+            method: "POST",
+
+            body: formData
+
+        });
+
+        const data = await response.json();
+
+        result.innerHTML = data.result;
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        result.innerHTML = "Server Error ❌";
+    }
+
+});
+
+</script>
+
+</body>
+</html>

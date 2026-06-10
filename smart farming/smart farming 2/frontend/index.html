@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Smart Farming</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:url("image/farm.jpg") no-repeat center center;
+background-size:cover;
+
+color:white;
+
+}
+
+/* overlay */
+
+body::before{
+
+content:"";
+position:absolute;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.5);
+
+z-index:-1;
+
+}
+
+/* glass container */
+
+.container{
+
+text-align:center;
+
+padding:60px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+
+box-shadow:0 15px 35px rgba(0,0,0,0.4);
+
+animation:fadeIn 1s ease;
+
+}
+
+/* title */
+
+h1{
+font-size:45px;
+margin-bottom:15px;
+}
+
+/* subtitle */
+
+p{
+font-size:18px;
+margin-bottom:30px;
+}
+
+/* start button */
+
+button{
+
+padding:15px 40px;
+
+font-size:18px;
+
+border:none;
+border-radius:30px;
+
+background:#4caf50;
+color:white;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+button:hover{
+
+background:#2e7d32;
+transform:scale(1.05);
+
+}
+
+/* animation */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* mobile */
+
+@media(max-width:600px){
+
+.container{
+padding:40px;
+}
+
+h1{
+font-size:30px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌾 Smart Farming</h1>
+
+<p>AI Powered Crop Prediction & Smart Agriculture</p>
+
+<button onclick="location.href='login.html'">Start</button>
+
+</div>
+
+</body>
+
+</html>

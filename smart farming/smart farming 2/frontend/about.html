@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | Smart Farming AI</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:url("https://images.unsplash.com/photo-1500382017468-9049fed747ef") no-repeat center center fixed;
+background-size:cover;
+color:white;
+}
+
+/* overlay */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+z-index:-1;
+}
+
+/* navbar */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 50px;
+background:rgba(0,0,0,0.4);
+}
+
+.navbar a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* hero */
+
+.hero{
+text-align:center;
+padding:120px 20px;
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+font-size:18px;
+}
+
+/* button */
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:12px 30px;
+border-radius:30px;
+background:#00c853;
+color:white;
+text-decoration:none;
+}
+
+.btn:hover{
+background:#00e676;
+}
+
+/* sections */
+
+.section{
+padding:70px 10%;
+display:flex;
+gap:40px;
+align-items:center;
+}
+
+.section:nth-child(even){
+flex-direction:row-reverse;
+}
+
+/* glass card */
+
+.section-text{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+padding:30px;
+border-radius:20px;
+}
+
+.section-text h2{
+color:#00ff9d;
+margin-bottom:15px;
+}
+
+.section-image img{
+width:100%;
+border-radius:15px;
+}
+
+/* values */
+
+.values{
+padding:80px 10%;
+text-align:center;
+}
+
+.values-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.value-card{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+padding:30px;
+border-radius:20px;
+transition:0.3s;
+}
+
+.value-card:hover{
+transform:translateY(-10px);
+}
+
+.value-card h3{
+color:#00ff9d;
+margin-bottom:10px;
+}
+
+/* technology */
+
+.tech{
+padding:80px 10%;
+text-align:center;
+}
+
+.tech-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.tech-card{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+padding:30px;
+border-radius:20px;
+}
+
+.tech-card h3{
+color:#00ff9d;
+margin-bottom:10px;
+}
+
+/* footer */
+
+footer{
+text-align:center;
+padding:40px;
+background:rgba(0,0,0,0.6);
+margin-top:60px;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.section{
+flex-direction:column !important;
+}
+
+.hero h1{
+font-size:28px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<div class="navbar">
+
+<h2>🌾 Smart Farming</h2>
+
+<div>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="support.html">Support</a>
+</div>
+
+</div>
+
+<!-- Hero -->
+
+<div class="hero">
+
+<h1>About Smart Farming AI</h1>
+
+<p>
+Smart Farming AI helps farmers make better decisions using Artificial Intelligence,
+weather data and soil analysis.
+</p>
+
+<a href="dashboard.html" class="btn">Explore Dashboard</a>
+
+</div>
+
+<!-- Who we are -->
+
+<div class="section">
+
+<div class="section-text">
+
+<h2>Who We Are</h2>
+
+<p>
+Smart Farming AI is a modern agriculture platform designed to improve crop
+productivity using AI and smart data analysis.
+</p>
+
+<p>
+We provide farmers with intelligent tools to monitor weather, soil nutrients
+and crop conditions.
+</p>
+
+</div>
+
+<div class="section-image">
+
+<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=600&q=80">
+
+</div>
+
+</div>
+
+<!-- Agriculture Research -->
+
+<div class="section">
+
+<div class="section-text">
+
+<h2>Agriculture Research</h2>
+
+<p>
+Our platform uses research-based agricultural datasets and climate analysis
+to provide accurate crop recommendations for farmers.
+</p>
+
+<p>
+We study soil nutrients, rainfall patterns and environmental factors to help
+farmers choose the best crops for their land.
+</p>
+
+</div>
+
+<div class="section-image">
+
+<img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80">
+
+</div>
+
+</div>
+
+<!-- Core Values -->
+
+<div class="values">
+
+<h2>Our Core Values</h2>
+
+<div class="values-grid">
+
+<div class="value-card">
+<h3>Innovation</h3>
+<p>Using AI technology to improve farming productivity.</p>
+</div>
+
+<div class="value-card">
+<h3>Sustainability</h3>
+<p>Protecting the environment while improving agriculture.</p>
+</div>
+
+<div class="value-card">
+<h3>Farmer Support</h3>
+<p>Helping farmers make better decisions using data.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Technology We Use -->
+
+<div class="tech">
+
+<h2>Technology We Use</h2>
+
+<div class="tech-grid">
+
+<div class="tech-card">
+<h3>Machine Learning</h3>
+<p>AI models analyze soil nutrients, rainfall, temperature and humidity to recommend crops.</p>
+</div>
+
+<div class="tech-card">
+<h3>Python & Flask</h3>
+<p>The backend system processes crop prediction using Flask APIs.</p>
+</div>
+
+<div class="tech-card">
+<h3>Web Technologies</h3>
+<p>HTML, CSS and JavaScript provide the interactive smart farming dashboard.</p>
+</div>
+
+<div class="tech-card">
+<h3>Weather API</h3>
+<p>Real-time weather data improves farming decisions.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<footer>
+
+<p>© 2026 Smart Farming AI Platform</p>
+
+</footer>
+
+</body>
+
+</html>

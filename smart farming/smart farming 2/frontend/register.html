@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Account</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:url("image/farm.jpg") no-repeat center center fixed;
+background-size:cover;
+}
+
+/* glass box */
+
+.register-box{
+backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.2);
+
+padding:40px;
+border-radius:20px;
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+width:320px;
+animation:fadeIn 1s;
+}
+
+h2{
+color:white;
+margin-bottom:20px;
+}
+
+/* inputs */
+
+input{
+width:90%;
+padding:12px;
+margin:8px 0;
+
+border:none;
+border-radius:8px;
+outline:none;
+}
+
+/* button */
+
+button{
+width:90%;
+padding:12px;
+border:none;
+border-radius:25px;
+
+background:#4caf50;
+color:white;
+
+font-size:16px;
+cursor:pointer;
+
+transition:0.3s;
+}
+
+button:hover{
+background:#1b5e20;
+}
+
+/* link */
+
+a{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+/* animation */
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hero">
+
+<div class="register-box">
+
+<h2>🌱 Create Account</h2>
+
+<form onsubmit="registerUser(event)">
+
+<input type="text" id="username" placeholder="Username" required>
+
+<input type="email" id="email" placeholder="Email" required>
+
+<input type="tel" id="phone" placeholder="Phone Number" required>
+
+<input type="password" id="password" placeholder="Password" required>
+
+<br><br>
+
+<button type="submit">Create Account</button>
+
+</form>
+
+<br>
+
+<a href="index.html">⬅ Back to Login</a>
+
+</div>
+
+</div>
+
+<script>
+
+function registerUser(e){
+e.preventDefault();
+
+let user = document.getElementById("username").value;
+let pass = document.getElementById("password").value;
+
+localStorage.setItem("username", user);
+localStorage.setItem("password", pass);
+
+alert("Account Created Successfully ✅");
+
+window.location.href = "index.html";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Farming Services | Smart Farming AI</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+
+background:url("https://images.unsplash.com/photo-1500382017468-9049fed747ef") no-repeat center center fixed;
+background-size:cover;
+
+color:white;
+
+}
+
+/* overlay */
+
+body::before{
+
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.65);
+
+z-index:-1;
+
+}
+
+/* navbar */
+
+.navbar{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px 50px;
+
+background:rgba(0,0,0,0.4);
+
+}
+
+.navbar a{
+
+color:white;
+text-decoration:none;
+margin-left:20px;
+
+}
+
+/* hero */
+
+.hero{
+
+text-align:center;
+
+padding:100px 20px;
+
+}
+
+.hero h1{
+
+font-size:40px;
+margin-bottom:15px;
+
+}
+
+.hero p{
+
+max-width:700px;
+margin:auto;
+
+}
+
+/* services grid */
+
+.services{
+
+padding:80px 10%;
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+}
+
+/* glass card */
+
+.card{
+
+background:rgba(255,255,255,0.12);
+
+backdrop-filter:blur(12px);
+
+padding:35px;
+
+border-radius:20px;
+
+text-align:center;
+
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+/* icon */
+
+.icon{
+
+font-size:45px;
+margin-bottom:15px;
+
+}
+
+/* button */
+
+.btn{
+
+display:inline-block;
+
+margin-top:15px;
+
+padding:10px 25px;
+
+border-radius:25px;
+
+background:#00c853;
+
+color:white;
+
+text-decoration:none;
+
+}
+
+.btn:hover{
+
+background:#00e676;
+
+}
+
+/* footer */
+
+footer{
+
+text-align:center;
+
+padding:30px;
+
+background:rgba(0,0,0,0.6);
+
+margin-top:50px;
+
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:28px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<div class="navbar">
+
+<h2>🌾 Smart Farming</h2>
+
+<div>
+
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="support.html">Support</a>
+<a href="about.html">About</a>
+
+</div>
+
+</div>
+
+<!-- Hero -->
+
+<div class="hero">
+
+<h1>Farming Services</h1>
+
+<p>
+
+Smart Farming AI provides intelligent services that help farmers improve
+productivity using data and artificial intelligence.
+
+</p>
+
+</div>
+
+<!-- Services -->
+
+<div class="services">
+
+<div class="card">
+
+<div class="icon">🌾</div>
+
+<h2>Crop Recommendation</h2>
+
+<p>
+
+Get AI-based crop suggestions based on soil nutrients,
+temperature, humidity and rainfall.
+
+</p>
+
+<a href="dashboard.html" class="btn">Check Crop</a>
+
+</div>
+
+<div class="card">
+
+<div class="icon">🦠</div>
+
+<h2>Disease Detection</h2>
+
+<p>
+
+Upload crop images and detect plant diseases using
+AI-powered crop analysis.
+
+</p>
+
+<a href="dashboard.html" class="btn">Detect Disease</a>
+
+</div>
+
+<div class="card">
+
+<div class="icon">📈</div>
+
+<h2>Yield Prediction</h2>
+
+<p>
+
+Predict crop production and yield using smart agriculture
+data analysis.
+
+</p>
+
+<a href="dashboard.html" class="btn">Predict Yield</a>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<footer>
+
+<p>© 2026 Smart Farming AI Platform</p>
+
+</footer>
+
+</body>
+
+</html>

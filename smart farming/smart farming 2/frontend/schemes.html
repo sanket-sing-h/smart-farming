@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Government Schemes</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#ede7f6;
+text-align:center;
+padding-top:30px;
+}
+
+/* SEARCH */
+input{
+padding:10px;
+width:250px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+/* FILTER */
+.filter{
+margin:15px;
+}
+
+button{
+padding:8px 15px;
+margin:5px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+background:#673ab7;
+color:white;
+}
+
+/* CARD */
+.card{
+background:white;
+margin:15px auto;
+padding:15px;
+width:320px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.03);
+}
+
+/* DETAILS */
+.details{
+display:none;
+margin-top:10px;
+color:#555;
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>🏛 Government Schemes</h2>
+
+<!-- SEARCH -->
+<input type="text" placeholder="Search scheme..." onkeyup="searchSchemes(this.value)">
+
+<!-- FILTER -->
+<div class="filter">
+<button onclick="filterSchemes('all')">All</button>
+<button onclick="filterSchemes('central')">Central</button>
+<button onclick="filterSchemes('state')">State</button>
+</div>
+
+<!-- SCHEMES -->
+<div id="schemes">
+
+<div class="card central" onclick="toggle(this)">
+PM Kisan Yojana
+<div class="details">₹6000/year financial support to farmers</div>
+</div>
+
+<div class="card central" onclick="toggle(this)">
+Soil Health Card
+<div class="details">Free soil testing for better crop planning</div>
+</div>
+
+<div class="card central" onclick="toggle(this)">
+Crop Insurance
+<div class="details">Protection against crop failure</div>
+</div>
+
+<div class="card state" onclick="toggle(this)">
+Kisan Credit Card
+<div class="details">Low-interest loans for farmers</div>
+</div>
+
+<div class="card state" onclick="toggle(this)">
+Subsidy on Seeds
+<div class="details">Government provides seeds at lower cost</div>
+</div>
+
+</div>
+
+<br>
+<a href="home.html">⬅ Back</a>
+
+<script>
+
+// TOGGLE DETAILS
+function toggle(el){
+let d = el.querySelector(".details");
+d.style.display = (d.style.display==="block") ? "none" : "block";
+}
+
+// SEARCH
+function searchSchemes(val){
+val = val.toLowerCase();
+
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+let text = card.innerText.toLowerCase();
+card.style.display = text.includes(val) ? "block" : "none";
+});
+}
+
+// FILTER
+function filterSchemes(type){
+
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+if(type==="all"){
+card.style.display="block";
+}
+else if(card.classList.contains(type)){
+card.style.display="block";
+}
+else{
+card.style.display="none";
+}
+});
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Smart Farming Login</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+}
+
+/* background */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:url("image/farm.jpg") no-repeat center center fixed;
+background-size:cover;
+background-position:center;
+}
+
+/* glass login box */
+
+.login-box{
+
+backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.2);
+
+padding:40px;
+border-radius:20px;
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+
+animation:fadeIn 1.2s;
+
+width:320px;
+
+}
+
+/* title */
+
+h2{
+color:white;
+margin-bottom:20px;
+}
+
+/* inputs */
+
+input{
+
+width:90%;
+padding:12px;
+margin:8px 0;
+
+border:none;
+border-radius:8px;
+
+outline:none;
+
+}
+
+/* button */
+
+button{
+
+width:90%;
+padding:12px;
+
+border:none;
+border-radius:25px;
+
+background:white;
+color:#2e7d32;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+button:hover{
+
+background:#1b5e20;
+color:white;
+
+}
+
+/* links */
+
+.links{
+color:white;
+font-size:14px;
+margin-top:10px;
+}
+
+/* error */
+
+#error{
+color:#ff5252;
+font-size:14px;
+}
+
+/* animation */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hero">
+
+<div class="login-box">
+
+<h2>🌾 Smart Farming Login</h2>
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="tel" id="phone" placeholder="Contact Number">
+
+<input type="password" id="password" placeholder="Password">
+
+<label style="color:white;font-size:14px">
+<input type="checkbox" onclick="togglePassword()"> Show Password
+</label>
+
+<br>
+
+<label style="color:white;font-size:14px">
+<input type="checkbox"> Remember Me
+</label>
+
+<br><br>
+
+<button onclick="login()">Login</button>
+
+<p id="error"></p>
+
+<div class="links">
+
+<a href="#" onclick="forgotPassword()" style="color:white">Forgot Password?</a>
+
+<br><br>
+
+<button onclick="location.href='register.html'" style="background:#4caf50;color:white">
+Create Account
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+
+function login(){
+
+let username=document.getElementById("username").value
+let password=document.getElementById("password").value
+let error=document.getElementById("error")
+
+let savedUser = localStorage.getItem("username")
+let savedPass = localStorage.getItem("password")
+
+if(username==="" || password===""){
+error.innerText="Please fill all required fields"
+return
+}
+
+if(username===savedUser && password===savedPass){
+window.location.href="home.html"
+}
+else{
+error.innerText="Invalid Username or Password"
+}
+
+}
+
+function togglePassword(){
+
+let pass=document.getElementById("password")
+
+if(pass.type==="password"){
+pass.type="text"
+}else{
+pass.type="password"
+}
+
+}
+
+function forgotPassword(){
+
+let savedUser = localStorage.getItem("username")
+
+if(!savedUser){
+alert("No account found! Please create account first.")
+return
+}
+
+let user = prompt("Enter your username:")
+
+if(user !== savedUser){
+alert("Username not found!")
+return
+}
+
+let newPass = prompt("Enter new password:")
+
+if(newPass === "" || newPass === null){
+alert("Password cannot be empty")
+return
+}
+
+localStorage.setItem("password", newPass)
+
+alert("Password updated successfully ✅")
+}
+
+</script>
